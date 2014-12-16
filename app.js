@@ -14,8 +14,20 @@ function($scope){
     // Don't allow submission with a blank title
     if(!$scope.title || $scope.title === '') { return; }
 
-    $scope.posts.push({title: $scope.title, upvotes: 0});
-    $scope.title = ''; // reset $scope.tile to empty string after the post has been made
+    $scope.posts.push({
+      title: $scope.title, 
+      link: $scope.link,
+      upvotes: 0
+    });
+
+    // reset $scope variables to empty string after the post has been made
+    $scope.title = '';
+    $scope.link = '';
   };
+
+  $scope.incrementUpvotes = function(post) {
+    post.upvotes += 1;
+  };
+
 
 }]);
